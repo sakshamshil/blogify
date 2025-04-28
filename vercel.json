@@ -5,24 +5,23 @@
       "src": "blogs_app/wsgi.py",
       "use": "@vercel/python",
       "config": {
-        "maxLambdaSize": "50mb"
+        "maxLambdaSize": "15mb",
+        "runtime": "python3.9"
+      }
+    },
+    {
+      "src": "build_files.sh",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "staticfiles"
       }
     }
   ],
   "routes": [
     {
-      "src": "/static/(.*)",
-      "dest": "/staticfiles/$1"
-    },
-    {
       "src": "/(.*)",
       "dest": "blogs_app/wsgi.py"
     }
   ],
-  "build": {
-    "env": {
-      "DJANGO_SETTINGS_MODULE": "blogs_app.settings"
-    },
-    "commands": ["python manage.py collectstatic --noinput"]
-  }
+  "outputDirectory": "staticfiles"
 }
