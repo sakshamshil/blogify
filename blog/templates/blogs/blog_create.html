@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% block start %}
+
+<h2 style="text-align: center; margin-bottom: 20px">Enter Blog Details</h2>
+
+<form
+  method="POST"
+  class="velo_validation"
+  style="max-width: 600px; margin: auto"
+>
+  {% csrf_token %} {% for field in form %}
+  <div style="margin-bottom: 15px">
+    <label><b>{{ field.label}}</b></label
+    ><br />
+    {{ field }}
+  </div>
+  {% endfor %}
+  <input
+    type="submit"
+    value="Save"
+    style="
+      padding: 8px 16px;
+      font-size: 16px;
+      background-color: green;
+      color: white;
+      border: none;
+      cursor: pointer;
+    "
+  />
+</form>
+
+{% endblock %}
+
+<!-- {{form.as_p}} -->

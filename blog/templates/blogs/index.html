@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block start %}
+
+<div class="container mt-5">
+  <h1 class="text-center mb-4"><b>BLOGIFY DASHBOARD</b></h1>
+
+  <div class="card shadow p-4 rounded-4">
+    <div class="d-grid gap-3 text-center">
+      <a
+        href="{% url 'show' %}"
+        class="btn btn-outline-primary btn-lg w-50 mx-auto"
+      >
+        📄 View All Blogs
+      </a>
+
+      <a
+        href="{% url 'create' %}"
+        class="btn btn-outline-success btn-lg w-50 mx-auto"
+      >
+        ✍️ Create a New Blog
+      </a>
+
+      <a
+        href="{% url 'update' %}"
+        class="btn btn-outline-warning btn-lg w-50 mx-auto"
+      >
+        ✏️ Update a Blog
+      </a>
+
+      <a
+        href="{% url 'delete' %}"
+        class="btn btn-outline-danger btn-lg w-50 mx-auto"
+      >
+        🗑️ Delete a Blog
+      </a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

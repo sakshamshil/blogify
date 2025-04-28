@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "blogs_app/wsgi.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/staticfiles/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "blogs_app/wsgi.py"
+    }
+  ]
+}

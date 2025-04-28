@@ -1,0 +1,437 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validation Form</title>
+    <link rel="stylesheet" href="{% static 'velo_validation/style.css' %}">
+    <script src="{% static 'velo_validation/jquery.js' %}"></script>
+    <script src="{% static 'velo_validation/jquery.validate.js' %}"></script>
+    <script src="{% static 'velo_validation/validation.js' %}"></script>
+</head>
+<body>
+    {% csrf_token %}
+
+<form id="sample" class = "velo_validation"  method="post" action="">
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="user_type">Select User Type</label>
+                        <select name="user_type" id="user-type" class="form-control" data-rule-mandatory="true">
+                            <option value=" ">Select User Type</option>			    
+                            <option value="1" >Administrator</option>
+                            <option value="2" >Account Manager</option>
+                            <option value="3" >Auditor</option>
+                            <option value="4" >Co-ordinator</option>
+                            <option value="5" >Legal</option>
+                            <option value="6" >Logistics Manager</option>
+                            <option value="7" >Field Engineer</option>
+                            <option value="8" >Management</option>
+                            <option value="9" >Operator</option>
+                            <option value="10" >Technical Manager</option>
+                            <option value="11" >Admin 1</option>
+                            <option value="12" >Case Creator</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="first_name">First Name <span class="color-danger">*</span></label>
+                        <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" value="" data-rule-firstname="true">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="middle_name">Middle Name <span class="color-danger">*</span></label>
+                        <input type="text" class="form-control" id="middle_name" name="middle_name" placeholder="Middle Name" value="" data-rule-middlename="true">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="last_name">Last Name <span class="color-danger">*</span></label>
+                        <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" value="" data-rule-lastname="true">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="alphanumeric">Alphanumeric <span class="color-danger">*</span></label>
+                        <input type="text" class="form-control" id="alphanumeric" name="alphanumeric" placeholder="Alphanumeric" value="" data-rule-requiredMin2Max60NoSpecial="true">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="email">Email ID <span class="color-danger">*</span></label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email ID" value="" data-rule-email="true">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="password">Password <span class="color-danger">*</span></label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="" data-rule-passwd="true">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="contact_no">Contact No. <span class="color-danger">*</span></label>
+                        <input type="text" class="form-control" id="contact_no" name="contact_no" placeholder="Contact No." value="" data-rule-mobile="true">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="price">Price <span class="color-danger">*</span></label>
+                        <input type="text" class="form-control" id="price" name="price" placeholder="Price" value="" data-rule-price="true">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="address_line1">Address Line 1 <span class="color-danger">*</span></label>
+                        <input type="text" class="form-control" id="address_line1" name="address_line1" placeholder="Address Line 1" value="" data-rule-addressLine1="true">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="address_line2">Address Line 2 </label>
+                        <input type="text" class="form-control" id="address_line2" name="address_line2" placeholder="Address Line 2" value="" data-rule-addressLine2="true">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="digit">Digit <span class="color-danger">*</span></label>
+                        <input type="text" class="form-control" id="digit" name="digit" placeholder="Digit" value="" data-rule-digit="true">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="digit1">Digit</label>
+                        <input type="text" class="form-control" id="digit1" name="digit1" placeholder="Digit" value="" data-rule-notRequiredDigit="true">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="pincode">Pincode <span class="color-danger">*</span></label>
+                        <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Pincode" value="" data-rule-pincode="true">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="ip_address">IP Address <span class="color-danger">*</span></label>
+                        <input type="text" class="form-control" id="ip_address" name="ip_address" placeholder="IP Address" value="" data-rule-requiredip="true">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="ip_address1">IP Address </label>
+                        <input type="text" class="form-control" id="ip_address1" name="ip_address1" placeholder="IP Address" value="" data-rule-optionalip="true">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="image">Image <span class="color-danger">*</span></label>
+                        <input type="file" class="form-control" id="image" name="image" value="" data-rule-requiredimage="true">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="image1">Image</label>
+                        <input type="file" class="form-control" id="image1" name="image1" value="" data-rule-optionalimage="true">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="characters">Characters <span class="color-danger">*</span></label>
+                        <input type="text" class="form-control" id="characters" name="characters" value="" data-rule-requiredcharonly="true">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="characters1">Characters</label>
+                        <input type="text" class="form-control" id="characters1" name="characters1" value="" data-rule-optionalcharonly="true">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="barcode">Barcode</label>
+                        <input type="text" class="form-control" id="barcode" name="barcode" value="" data-rule-barcode="true">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="ean">EAN</label>
+                        <input type="text" class="form-control" id="ean" name="ean" value="" data-rule-ean="true">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="upc">UPC</label>
+                        <input type="text" class="form-control" id="upc" name="upc" value="" data-rule-upc="true">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="size">Size</label>
+                        <input type="text" class="form-control" id="size" name="size" value="" data-rule-size="true">
+                    </div>
+                </div>
+            </div>
+	</div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="url">URL <span class="color-danger">*</span></label>
+                        <input type="text" class="form-control" id="url" name="url" value="" data-rule-requiredurl="true">
+                    </div>
+                </div>
+            </div>        
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="url1">URL</label>
+                        <input type="text" class="form-control" id="url1" name="url1" value="" data-rule-optionalurl="true">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="carrier">Carrier</label>
+                        <input type="text" class="form-control" id="carrier" name="carrier" value="" data-rule-carrier="true">
+                    </div>
+                </div>
+            </div>
+	</div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="brand">Brand</label>
+                        <input type="text" class="form-control" id="brand" name="brand" value="" data-rule-brand="true">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="company">Company</label>
+                        <input type="text" class="form-control" id="company" name="company" value="" data-rule-optionalCompany="true">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="compan1">Company <span class="color-danger">*</span></label>
+                        <input type="text" class="form-control" id="company1" name="company1" value="" data-rule-requiredcompany="true">
+                    </div>
+                </div>
+            </div>
+	</div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="sku">SKU</label>
+                        <input type="text" class="form-control" id="sku" name="sku" value="" data-rule-sku="true">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="date1">Date (mmddyy) <span class="color-danger">*</span></label>
+                        <input type="text" class="form-control" id="date1" name="date1" value="" data-rule-requiredmmddyy="true">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="date2">Date (mmddyy)</label>
+                        <input type="text" class="form-control" id="date2" name="date2" value="" data-rule-optionalmmddyy="true">
+                    </div>
+                </div>
+            </div>
+	</div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="date3">Date (ddmmyy) <span class="color-danger">*</span></label>
+                        <input type="text" class="form-control" id="date3" name="date3" value="" data-rule-requiredddmmyy="true">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="date4">Date (ddmmyy)</label>
+                        <input type="text" class="form-control" id="date4" name="date4" value="" data-rule-optionalddmmyy="true">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="number">Number (0-100)</label>
+                        <input type="text" class="form-control" id="number" name="number" value="" data-rule-optionalnumber="true">
+                    </div>
+                </div>
+            </div>
+	</div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="number1">Number (0-100) <span class="color-danger">*</span></label>
+                        <input type="text" class="form-control" id="number1" name="number1" value="" data-rule-mandatorynumber="true">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="script_check">Script Check</label>
+                        <input type="text" class="form-control" id="script_check" name="script_check" value="" data-rule-scriptcheck="true">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="html_check">HTML Tags Check</label>
+                        <input type="text" class="form-control" id="html_check" name="html_check" value="" data-rule-htmltagcheck="true">
+                    </div>
+                </div>
+            </div>
+	</div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="docs">Docs <span class="color-danger">*</span></label>
+                        <input type="file" class="form-control" id="docs" name="docs" value="" data-rule-requireddocs="true">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="docs1">Docs</label>
+                        <input type="file" class="form-control" id="docs1" name="docs1" value="" data-rule-optionaldocs="true">
+                    </div>
+                </div>
+            </div>
+			<div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="docs1">Color<span class="color-danger">*</span></label>
+                        <input type="text" class="form-control" id="color" name="color" value="" data-rule-mandatorycolor="true">
+                    </div>
+                </div>
+            </div>
+        </div>
+		<div class="row">
+		<div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="docs1">Color</label>
+                        <input type="text" class="form-control" id="color1" name="color1" value="" data-rule-optionalcolor="true">
+                    </div>
+                </div>
+            </div>
+		</div>
+
+		<div class="row">
+		<div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="docs1">Email Address</label>
+                        <input type="text" class="form-control" id="emaitest" name="emaitest" value="" data-rule-email="true">
+                    </div>
+                </div>
+            </div>
+		</div>
+
+		
+        <div class="row">
+            <div class="form-group">
+                <div class="col-md-6">
+                    <input type="submit" name="submit" class="btn btn-primary" value="Submit" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
