@@ -379,3 +379,4 @@ INFO 2025-04-28 17:13:00,736 autoreload /home/saksham/Desktop/Velocity Training/
 INFO 2025-04-28 17:13:01,104 autoreload Watching for file changes with StatReloader
 INFO 2025-04-28 17:14:53,880 autoreload /home/saksham/Desktop/Velocity Training/Python Training/Day 3/blogs-app/blogs_app/blogs_app/settings.py changed, reloading.
 INFO 2025-04-28 17:14:54,099 autoreload Watching for file changes with StatReloader
+INFO 2025-04-28 17:24:58,303 autoreload Watching for file changes with StatReloader
