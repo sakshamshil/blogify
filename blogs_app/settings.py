@@ -14,10 +14,6 @@ import os
 from pathlib import Path
 from decouple import config
 
-import pymysql
-
-pymysql.install_as_MySQLdb()
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,8 +28,8 @@ SECRET_KEY = 'django-insecure-ry#ru#k$oip#$rcj2@kdm9!zr*_%9im3pj1&_c@muk^#c3^)w8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-# ALLOWED_HOSTS = ['.vercel.app']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1', '.now.sh']
+# ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -87,12 +83,12 @@ WSGI_APPLICATION = 'blogs_app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': config('DB_NAME'),
         'USER': config('DB_USER'),
         'PASSWORD': config('DB_PASSWORD'),
-        'HOST': '127.0.0.1',  
-        'PORT': '3306',  
+        'HOST': 'gondola.proxy.rlwy.net',
+        'PORT': '57383 ',  
     }
 }
 
