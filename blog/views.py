@@ -35,7 +35,7 @@ def blog_show(request):
         blogs = BlogPost.objects.filter(user = request.user)
     else:
         blogs = BlogPost.objects.all()
-    return render (request, "blogs/blogs_show.html", {'blogs' : blogs})
+    return render (request, "blogs/blogs_show.html", {'blogs' : blogs, 'page' : 'Show Blogs'})
 
 
 
@@ -59,7 +59,7 @@ def blog_create(request):
             blog_object.save()
             return redirect('/blog/')
     else:
-        return render(request, 'blogs/blog_create.html', {'form': form})
+        return render(request, 'blogs/blog_create.html', {'form': form, 'page' : 'Create Blog'})
 
 
 
@@ -73,7 +73,7 @@ def blog_delete(request):
 
 
     if request.method == 'GET':
-        context = {'form' : BlogDeletionForm()}
+        context = {'form' : BlogDeletionForm(), 'page' : 'Delete Blog'}
 
         return render (request, 'blogs/blogs_delete.html', context)
     
@@ -101,7 +101,7 @@ def blog_delete(request):
                 return redirect('/blog/delete/')
 
         else:
-            return render (request, 'blogs/blogs_delete.html', {'form' : form})
+            return render (request, 'blogs/blogs_delete.html', {'form' : form, 'page' : 'Delete Blog'})
 
         
 @login_required
@@ -112,7 +112,7 @@ def blog_update(request):
     """
 
     if request.method == 'GET':
-        context = {'form' : BlogUpdationForm}
+        context = {'form' : BlogUpdationForm, 'page' : 'Update Blog'}
 
         return render (request, 'blogs/blogs_update.html', context)
     
@@ -234,8 +234,3 @@ def check_ownership(request, id):
         return False
     return True
 
-def show_validation_form(request):
-    if request.method == 'POST':
-        # Just for test
-        print(request.POST)
-    return render(request, 'blogs/form.html')

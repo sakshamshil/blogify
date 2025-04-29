@@ -18,7 +18,7 @@ def sign_in(request):
 
         if request.method == 'GET':
             form = LoginForm()
-            return render(request, 'users/login.html', {'form': form})
+            return render(request, 'users/login.html', {'form': form, 'page': 'Login'})
 
         elif request.method == 'POST':
             form = LoginForm(request.POST)
@@ -39,7 +39,7 @@ def sign_in(request):
                     return render(request, 'users/login.html', {'form': form})
             else :
                 messages.error(request, 'Invalid Entries.')
-                return render(request, 'users/login.html', {'form': form})
+                return render(request, 'users/login.html', {'form': form, 'page' : 'Login'})
         
     except Exception as e:
         messages.error(request, f'Error: {e}')
@@ -53,7 +53,7 @@ def signup(request):
 
         if request.method == 'GET':
             form = SignupForm()
-            return render(request, 'users/register.html', {'form': form})
+            return render(request, 'users/register.html', {'form': form, 'page': 'Register'})
 
         elif request.method == 'POST':
             form = SignupForm(request.POST)
@@ -75,7 +75,7 @@ def signup(request):
                 return redirect('/login/')
             else:
                 messages.error(request, "Signup failed! Try again")
-                return render(request, 'users/register.html', {'form': form})
+                return render(request, 'users/register.html', {'form': form, 'page': 'Register'})
     except Exception as e:
         messages.error(request, f'Error: {e}')
         return redirect('/')
