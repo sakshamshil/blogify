@@ -14,11 +14,14 @@
   ],
   "routes": [
     {
+      "src": "/static/(.*)",
+      "dest": "/staticfiles/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "project_name/wsgi.py"
+      "dest": "blogs_app/wsgi.py"
     }
   ],
-  "outputDirectory": "staticfiles",
   "env": {
     "PYTHONPATH": "."
   }
