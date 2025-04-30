@@ -47,6 +47,9 @@ def sign_in(request):
 
 
 def signup(request):
+    """
+    Handles the logic for user sign up page.
+    """
     try:
         if request.user.is_authenticated:
             return redirect('/')

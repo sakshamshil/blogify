@@ -26,7 +26,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3 fs-6 mb-4">
       <div class="container-fluid">
-        <a href="{% url 'home' %}" class="navbar-brand"><b> BLOGIFY </b> </a>
+        <a href="{% url 'home' %}" class="navbar-brand"><b>BLOGIFY</b></a>
         <button
           class="navbar-toggler"
           type="button"
@@ -41,25 +41,46 @@
             <li class="nav-item">
               <a
                 href="{% url 'home' %}"
-                class="nav-link active"
-                aria-current="page"
+                class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
                 >Home</a
               >
             </li>
             <li class="nav-item">
-              <a href="{% url 'show' %}" class="nav-link">View Blogs</a>
+              <a
+                href="{% url 'show' %}"
+                class="nav-link {% if request.resolver_match.url_name == 'show' %}active{% endif %}"
+                >View Blogs</a
+              >
+            </li>
+            {% if request.user.is_authenticated %}
+            <li class="nav-item">
+              <a
+                href="{% url 'create' %}"
+                class="nav-link {% if request.resolver_match.url_name == 'create' %}active{% endif %}"
+                >Create Blog</a
+              >
             </li>
             <li class="nav-item">
-              <a href="{% url 'create' %}" class="nav-link">Create Blog</a>
+              <a
+                href="{% url 'update' %}"
+                class="nav-link {% if request.resolver_match.url_name == 'update' %}active{% endif %}"
+                >Update Blog</a
+              >
             </li>
             <li class="nav-item">
-              <a href="{% url 'update' %}" class="nav-link">Update Blog</a>
+              <a
+                href="{% url 'delete' %}"
+                class="nav-link {% if request.resolver_match.url_name == 'delete' %}active{% endif %}"
+                >Delete Blog</a
+              >
             </li>
+            {% endif %}
             <li class="nav-item">
-              <a href="{% url 'delete' %}" class="nav-link">Delete Blog</a>
-            </li>
-            <li class="nav-item">
-              <a href="{% url 'about' %}" class="nav-link">About Us</a>
+              <a
+                href="{% url 'about' %}"
+                class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}"
+                >About Us</a
+              >
             </li>
           </ul>
 
@@ -73,15 +94,18 @@
             <span class="navbar-text ms-3">
               Hi, {{ request.user.username|title }}
             </span>
-
             {% else %}
             <li class="nav-item">
-              <a href="{% url 'signup' %}" class="nav-link"
+              <a
+                href="{% url 'signup' %}"
+                class="nav-link {% if request.resolver_match.url_name == 'signup' %}active{% endif %}"
                 ><i class="bi bi-person"></i> Sign Up</a
               >
             </li>
             <li class="nav-item">
-              <a href="{% url 'login' %}" class="nav-link"
+              <a
+                href="{% url 'login' %}"
+                class="nav-link {% if request.resolver_match.url_name == 'login' %}active{% endif %}"
                 ><i class="bi bi-box-arrow-in-right"></i> Login</a
               >
             </li>
